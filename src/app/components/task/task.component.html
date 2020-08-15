@@ -1,0 +1,16 @@
+ <mat-card class="task">
+    <div mat-card-avatar [ngStyle]="{'background-image': 'url('+ (item.picture ? item.picture : 'https://material.angular.io/assets/img/examples/shiba1.jpg')+')'}" class="task-image"></div>
+    <div class="task-content ml16">
+        <mat-card-title>{{item.firstName}} {{item.lastName}}</mat-card-title>
+        <mat-card-subtitle class="mb10">{{item.job}}</mat-card-subtitle>
+        <div class="task-links mb10">
+            <i class="fab fa-twitter mr10"></i>
+            <i class="fab fa-linkedin mr10"></i>
+            <i class="fab fa-github mr10"></i>
+        </div>
+        <div class="task-tags">
+           <div class="tag mr10" *ngFor="let tag of item.tags">{{tag}}</div>
+        </div>
+    </div>
+   
+</mat-card>

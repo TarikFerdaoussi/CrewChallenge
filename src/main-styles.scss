@@ -1,0 +1,30 @@
+// global styles and changing bulma variables
+
+//import a Google Fonts 
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Lato:400,800,900');
+
+$family-sans-serif: "Numito", sans-serif;
+// Update some of Bulma's component variables
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+/* GLOBAL STYLES */
+html, body {
+    height: 100%;
+}
+
+html {
+    background: rgb(2,0,36);
+    background: linear-gradient(126deg, rgba(2,0,36,1) 0%, rgba(237,237,245,1) 0%, rgba(0,212,255,1) 51%);
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+.ml16 {
+    margin-left: 16px;
+}
+.mr10 {
+    margin-right: 10px;
+}

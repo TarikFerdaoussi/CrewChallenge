@@ -1,0 +1,33 @@
+<div class="root">
+    <div class="navbar has-background-dark">
+        <div class="nav-brand">
+            <div class="navbar-item">
+                <h1 class="app-name ">Crew Challenge</h1>
+            </div>
+        </div>
+    </div>
+    <autocomplete-filter [options]="tags" (itemsSelected)="tagChange($event)"></autocomplete-filter>
+    <div class="board">
+        <div class="board-bar">
+            <p class="board-name">{{board.name}}</p>
+        </div>
+        <div class="board-wrapper">
+            <div class="board-columns" cdkDropListGroup>
+                <div class="board-column"
+                    cdkDropList
+                    [cdkDropListData]="column.tasks"
+                    (cdkDropListDropped)="drop($event)" *ngFor="let column of board.columns">
+                    <div class="column-title" >{{column.name}}</div>
+                    <div class="tasks-container">
+                      
+                        <app-task cdkDrag *ngFor="let item of column.tasks" [item]="item" >  </app-task>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
