@@ -1,14 +1,5 @@
-.root {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.app-name {
-    font-size: 28px;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    color: white
+.filter {
+    margin-left: 20px;
 }
 
 .board {
@@ -37,7 +28,7 @@
             .board-column {
                 display: flex;
                 flex-direction: column;
-                flex-grow: 1;
+                flex: 1 0 21%;
                 width: 300px;
                 margin: 20px;
                 border-radius: 4px;
@@ -61,7 +52,10 @@
 }
 
 
-
+.autocomplete {
+    display: flex;
+    justify-content: center;
+}
 
 .cdk-drag-preview {
     box-sizing: border-box;

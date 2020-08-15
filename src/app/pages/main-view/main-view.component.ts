@@ -16,6 +16,7 @@ export class MainViewComponent implements OnInit {
   constructor(private apiService: ApiService,
               private talentsService: TalentsService) { }
 
+  selectedColumns: any[] = [];
   board: Board = new Board('Test board', [])
   talents : Profil[];
   tags: string[];
@@ -33,6 +34,19 @@ export class MainViewComponent implements OnInit {
     );
   }
   
+  isSelected(column: any): boolean {
+    const index = this.selectedColumns.indexOf(column);
+    return index >= 0;
+  }
+  selectColumn(column: any): void {
+    let index = this.selectedColumns.indexOf(column);
+
+    if (index >= 0) {
+      this.selectedColumns.splice(index, 1);
+    } else {
+      this.selectedColumns.push(column);
+    }
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -51,8 +65,7 @@ export class MainViewComponent implements OnInit {
       talents.push(this.talentsService.talentsByTag[tag])
     });
     talents = [...new Set(talents.flat(1))];
-    talents.forEach(talent => {
-    })
+   
     this.board.columns.forEach(column => {
       const tals = talents.filter(o => o.stage === column.name);
       column.tasks = tals;

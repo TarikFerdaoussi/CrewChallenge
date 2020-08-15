@@ -40,7 +40,7 @@ function load(http: HttpClient, config: ConfigService): (() => Promise<boolean>)
     AppComponent,
     MainViewComponent,
     TaskComponent,
-    AutoCompleteFilterComponent
+    AutoCompleteFilterComponent,
   ],
   imports: [
     BrowserModule,

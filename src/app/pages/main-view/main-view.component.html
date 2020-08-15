@@ -1,22 +1,23 @@
-<div class="root">
-    <div class="navbar has-background-dark">
-        <div class="nav-brand">
-            <div class="navbar-item">
-                <h1 class="app-name ">Crew Challenge</h1>
-            </div>
-        </div>
-    </div>
-    <autocomplete-filter [options]="tags" (itemsSelected)="tagChange($event)"></autocomplete-filter>
+
+    <autocomplete-filter class="autocomplete" [options]="tags" (itemsSelected)="tagChange($event)"></autocomplete-filter>
     <div class="board">
         <div class="board-bar">
-            <p class="board-name">{{board.name}}</p>
+            
+            <mat-chip-list #chipList [(ngModel)]="selectedColumns" multiple>
+                <mat-chip *ngFor="let column of board.columns" [selectable]="true"
+                         [removable]="false" 
+                         [selected]="isSelected(column)"
+                         (focus)="selectColumn(column)">
+                    {{column.name}}
+                </mat-chip>
+              </mat-chip-list>
         </div>
         <div class="board-wrapper">
             <div class="board-columns" cdkDropListGroup>
                 <div class="board-column"
                     cdkDropList
                     [cdkDropListData]="column.tasks"
-                    (cdkDropListDropped)="drop($event)" *ngFor="let column of board.columns">
+                    (cdkDropListDropped)="drop($event)" *ngFor="let column of selectedColumns">
                     <div class="column-title" >{{column.name}}</div>
                     <div class="tasks-container">
                       
@@ -28,6 +29,6 @@
             </div>
         </div>
     </div>
-</div>
+
 
 

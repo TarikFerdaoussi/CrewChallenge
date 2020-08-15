@@ -28,7 +28,7 @@ export class AutoCompleteFilterComponent  {
   constructor() {
     this.filteredOptions = this.itemCtrl.valueChanges.pipe(
         startWith(''),
-        debounceTime(400),
+        debounceTime(500),
         distinctUntilChanged(),
         map((option: string | null) => option ? this._filter(option) : this.options.slice()));
   }
@@ -56,6 +56,8 @@ export class AutoCompleteFilterComponent  {
     if (index >= 0) {
       this.items.splice(index, 1);
     }
+    this.itemsSelected.emit(this.items);
+
   }
 
   selected(event): void {
